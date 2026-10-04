@@ -23,7 +23,7 @@ test("/file splits fenced multi-file input and embeds exact file contents", asyn
   const pastes = [];
   const notices = [];
   const args =
-    '# First File\r\nalpha é & "<\r\n\r\n```text\r\n/file not-a-separator\r\n```\r\n\r\n/file ### Duplicate\r\nbeta\r\n\r\n/file ### Duplicate\r\ngamma\r\n\r\n/file # CON\r\nreserved\r\n\r\n/file # A & " <B>\r\nlast';
+    '# First File\r\nalpha é & "<\r\n\r\n```text\r\n/file not-a-separator\r\n````\r\n\r\n~~~~text\r\n/file tilde-literal\r\n~~~~~\r\n\r\n/file ### Duplicate\r\nbeta\r\n\r\n/file ### Duplicate\r\ngamma\r\n\r\n/file # CON\r\nreserved\r\n\r\n/file # A & " <B>\r\nlast';
 
   await command.handler(args, {
     mode: "tui",
@@ -68,9 +68,11 @@ test("/file splits fenced multi-file input and embeds exact file contents", asyn
     ]);
     assert.ok(
       tags[0][4].includes(
-        'alpha é & "<\r\n\r\n```text\r\n/file not-a-separator\r\n```',
+        'alpha é & "<\r\n\r\n```text\r\n/file not-a-separator\r\n````\r\n\r\n~~~~text\r\n/file tilde-literal\r\n~~~~~',
       ),
     );
+    assert.ok(tags[0][4].includes("/file not-a-separator"));
+    assert.ok(tags[0][4].includes("/file tilde-literal"));
     assert.equal(tags[0][3], "First File");
     assert.match(prepared, /label="First File"/);
     assert.equal(await readFile(paths[0], "utf8"), tags[0][4]);

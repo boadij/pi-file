@@ -39,11 +39,13 @@ GET /users
 200 OK
 ```
 
-Each top-level `/file` line starts another file. Separators are ignored inside
-fenced Markdown code blocks. The first `/file` requires a space before its
-content, such as `/file # Request`; a bare `/file` followed by a newline is not
-valid syntax. A top-level literal `/file` line outside a fence is reserved
-syntax.
+Each top-level marker consisting of `/file` followed by one literal space starts
+another file. Separators are ignored inside fenced Markdown code blocks.
+
+The initial command also requires that space before its content, for example
+`/file # Request`. A bare `/file` followed by a newline is not valid command
+syntax. A top-level line beginning with `/file` followed by a literal space,
+outside a fence, is reserved as the multi-file separator.
 
 `/file` prepares context in Pi's normal input editor but does not submit it. Add
 any instructions you want, then press Enter to submit normally.
