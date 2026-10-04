@@ -1,6 +1,6 @@
 {
   "name": "pi-file",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create temporary Markdown files from Pi command text and embed them in the input editor.",
   "type": "module",
   "license": "Apache-2.0",
