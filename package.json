@@ -1,0 +1,33 @@
+{
+  "name": "pi-file",
+  "version": "0.1.0",
+  "description": "Create temporary Markdown files from Pi command text and embed them in the input editor.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "boadij",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boadij/pi-file.git"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "coding-agent",
+    "file",
+    "context"
+  ],
+  "files": [
+    "extensions/"
+  ],
+  "scripts": {
+    "test": "node --experimental-strip-types --test"
+  },
+  "pi": {
+    "extensions": [
+      "./extensions/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  }
+}
