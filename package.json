@@ -12,9 +12,12 @@
   "keywords": [
     "pi-package",
     "pi",
+    "pi-extension",
+    "pi-coding-agent",
     "coding-agent",
-    "file",
-    "context"
+    "context-management",
+    "markdown",
+    "temporary-files"
   ],
   "files": [
     "extensions/"
@@ -29,5 +32,9 @@
   },
   "peerDependencies": {
     "@earendil-works/pi-coding-agent": "*"
+  },
+  "homepage": "https://github.com/boadij/pi-file#readme",
+  "bugs": {
+    "url": "https://github.com/boadij/pi-file/issues"
   }
 }
