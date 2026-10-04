@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 const AUTO_LABEL_LIMIT = 80;
+// ponytail: top-level "/file " is reserved; add escaping only if real collisions appear.
 const FILE_SEPARATOR = "/file ";
 
 type PreparedFile = {
