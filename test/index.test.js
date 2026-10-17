@@ -1,6 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { basename, dirname } from "node:path";
 import piFile from "../extensions/index.ts";
 
@@ -41,6 +42,10 @@ test("/file splits fenced multi-file input and embeds exact file contents", asyn
   ];
   const paths = tags.map((tag) => tag[1]);
   try {
+    assert.equal(
+      dirname(dirname(paths[0])),
+      process.platform === "darwin" ? "/tmp" : tmpdir(),
+    );
     assert.equal(pastes.length, 2);
     assert.equal(pastes[1], "\n");
     assert.deepEqual(notices, []);
