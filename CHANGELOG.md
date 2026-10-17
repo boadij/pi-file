@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/boadij/pi-file/compare/v0.1.1...v0.1.2) (2026-10-17)
+
+
+### Bug Fixes
+
+* shorten macOS temporary file paths ([#6](https://github.com/boadij/pi-file/issues/6)) ([ac5ccaf](https://github.com/boadij/pi-file/commit/ac5ccaf706d9152e629af087c8c063a167b89078))
+
 ## [0.1.1](https://github.com/boadij/pi-file/compare/v0.1.0...v0.1.1) (2026-10-04)
 
 
