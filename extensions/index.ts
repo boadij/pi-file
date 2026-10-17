@@ -186,7 +186,9 @@ export default function piFile(pi: ExtensionAPI): void {
         });
       }
 
-      const dir = await mkdtemp(join(tmpdir(), "pi-file-"));
+      const dir = await mkdtemp(
+        join(process.platform === "darwin" ? "/tmp" : tmpdir(), "pi-file-"),
+      );
       for (const file of files) {
         file.path = join(dir, file.name);
         await writeFile(file.path, file.text, "utf8");
